@@ -24,7 +24,7 @@ class FirstOperation: Operation {
         while password != passwordToUnlock {
             password = generateBruteForce(password, fromArray: allowed_characters)
             
-            DispatchQueue.main.async {
+            DispatchQueue.main.sync {
                 self.delegate?.showPasswordLabel(password)
             }
             if self.isCancelled {

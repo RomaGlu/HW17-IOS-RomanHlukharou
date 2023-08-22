@@ -7,7 +7,15 @@ class ViewController: UIViewController {
     var isStopped: Bool = false
     var bruteOperation = FirstOperation(passwordToUnlock: "")
     
-    @IBOutlet weak var button: UIButton!
+    private lazy var button: UIButton = {
+        let button = UIButton(type: .system)
+        button.setTitle("Change bg color", for: .normal)
+        button.setTitleColor(.cyan, for: .normal)
+        button.backgroundColor = .lightGray
+        button.layer.cornerRadius = 15
+        button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
+        return button
+    }()
     
     lazy var textField: UITextField = {
         let textField = UITextField()
@@ -50,11 +58,6 @@ class ViewController: UIViewController {
         }
     }
     
-   
-    @IBAction func onBut(_ sender: Any) {
-        isBlack.toggle()
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
@@ -63,13 +66,11 @@ class ViewController: UIViewController {
     }
     
     private func setupView() {
-        button.setTitle("Change bg color", for: .normal)
-        button.setTitleColor(.cyan, for: .normal)
-        button.backgroundColor = .lightGray
-        button.layer.cornerRadius = 15
+        view.backgroundColor = .systemBackground
     }
     
     private func setupHierarchy() {
+        view.addSubview(button)
         view.addSubview(textField)
         view.addSubview(label)
         view.addSubview(startButton)
@@ -111,6 +112,10 @@ class ViewController: UIViewController {
             make.centerX.equalTo(view.snp.centerX)
             make.width.height.equalTo(25)
         }
+    }
+    
+    @objc func buttonTapped() {
+        isBlack.toggle()
     }
 
     func checkPassword(_ text: String) -> Bool {
