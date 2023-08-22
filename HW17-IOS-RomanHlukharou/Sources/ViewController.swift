@@ -10,7 +10,7 @@ class ViewController: UIViewController {
     private lazy var button: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("Change bg color", for: .normal)
-        button.setTitleColor(.cyan, for: .normal)
+        button.setTitleColor(.systemIndigo, for: .normal)
         button.backgroundColor = .lightGray
         button.layer.cornerRadius = 15
         button.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
@@ -20,7 +20,7 @@ class ViewController: UIViewController {
     lazy var textField: UITextField = {
         let textField = UITextField()
         textField.backgroundColor = .lightGray
-        textField.textColor = .cyan
+        textField.textColor = .systemIndigo
         textField.layer.cornerRadius = 15
         textField.isSecureTextEntry = true
         return textField
@@ -28,7 +28,7 @@ class ViewController: UIViewController {
     
     private lazy var label: UILabel = {
         let label = UILabel()
-        label.textColor = .cyan
+        label.textColor = .systemIndigo
         return label
     }()
     
@@ -37,7 +37,7 @@ class ViewController: UIViewController {
         button.backgroundColor = .lightGray
         button.layer.cornerRadius = 15
         button.setTitle("Start/Stop", for: .normal)
-        button.setTitleColor(.cyan, for: .normal)
+        button.setTitleColor(.systemIndigo, for: .normal)
         button.addTarget(self, action: #selector(startButtonTapped), for: .touchUpInside)
         return button
     }()

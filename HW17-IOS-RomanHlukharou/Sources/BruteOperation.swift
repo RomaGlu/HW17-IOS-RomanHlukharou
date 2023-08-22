@@ -24,17 +24,17 @@ class FirstOperation: Operation {
         while password != passwordToUnlock {
             password = generateBruteForce(password, fromArray: allowed_characters)
             
-            DispatchQueue.main.sync {
+            DispatchQueue.main.async {
                 self.delegate?.showPasswordLabel(password)
             }
             if self.isCancelled {
-                DispatchQueue.main.sync {
+                DispatchQueue.main.async {
                     self.delegate?.cancelHacking()
                 }
                 return
             }
         }
-        DispatchQueue.main.sync {
+        DispatchQueue.main.async {
             self.delegate?.successHacking()
         }
     }
